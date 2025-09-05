@@ -1,0 +1,11 @@
+A=int(input())
+B=input()
+# print(type(A))
+# print(A[1])
+# A=int(A)
+# print(type(A))
+
+print(A*int(B[2]))
+print(A*(int(B[1])))
+print(A*(int(B[0])))
+print((A)*int(B))
