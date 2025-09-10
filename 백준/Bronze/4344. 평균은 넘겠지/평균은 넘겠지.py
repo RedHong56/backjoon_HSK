@@ -1,12 +1,17 @@
-for loop in range(int(input())): 
-    sum=0
-    big=0
-    A= list(map(int, input().split())) #map 이해
-    for i in range(1,len(A)):
-        sum += A[i]
-    avg=sum/A[0]
-    for i in range(1,len(A)):
-        if avg<A[i]:
-            big+=1
-    num= big/A[0]
-    print(format(num*100,'.3f'),end='%\n') # 포매팅
+n = int(input())
+
+Q= [list(map(int, input().split())) for _ in range(n)]
+
+for i in range(len(Q)):
+    student_total= sum(Q[i][1:])/Q[i][0]
+
+    big_student = 0
+
+    for j in Q[i][1:]:
+        if student_total<j:
+            big_student += 1
+
+    ans=big_student/Q[i][0]*100
+
+    print(format(ans,'.3f'),end="%\n")
+
