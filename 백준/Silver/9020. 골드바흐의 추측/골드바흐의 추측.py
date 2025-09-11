@@ -8,18 +8,18 @@ prime_num = [True] * (max_num+1) #G
 prime_num[0] = False
 prime_num[1] = False
 
-for i in range(2, int(max_num**0.5) + 1):
+for i in range(2, int(max_num**0.5) + 1): #절반의 사이즈에 에라토스테네스
     if not prime_num[i]:
         continue
-    for j in range(i * i, max_num + 1, i): 
+    for j in range(i * i, max_num + 1, i): # i와 같은 간격인 것들 지워주기 즉 배수 
         prime_num[j] = False  # i*i부터
 
 
 def determine(n): #nums 리스트 의 인덱스 받기
-    a = n // 2
-    while a >= 2:
-        b = n - a
-        if prime_num[a] and prime_num[b]:
+    a = n // 2 #인덱스의 절반 에서부터 내려오며 탐색하겠다
+    while a >= 2: 
+        b = n - a # 찾는 인덱스중 남은 값이 
+        if prime_num[a] and prime_num[b]: #소수에 포함되면
             print(a, b)       # 차이 최소 쌍
             return
         a -= 1
