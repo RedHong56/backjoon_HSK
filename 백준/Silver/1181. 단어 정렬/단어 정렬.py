@@ -17,3 +17,14 @@ for i in range(len(sorted_words)):
 #복합 정렬 : multi-ket sort 여러 조건을 동시에 적용하는 정렬 방식
 # key lambda: 한 줄짜리 익명 함수 키워드
 # 튜플이 자동적으로 사전적 비교를 해줌
+
+
+students = [
+    ("철수", 90),
+    ("민수", 85),
+    ("영희", 90),
+    ("지훈", 75),
+    ("하나", 85)
+]
+
+sort_std = sorted(students, key =lambda x:(len(x), x) ) # key = (key: value)
