@@ -61,3 +61,7 @@ while True:
         if i < m-1: i += 1
 
 print(count)
+
+#방향 디버깅
+#사과 먹고 초기화 
+#추가하고자하는거 체크
