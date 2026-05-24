@@ -9,6 +9,7 @@ bool compare(int a, int b) { // ❶ 정렬 기준 정의
 
 vector<int> solution(vector<int> lst) {
     sort(lst.begin(), lst.end(), compare); // ❷ 내림차순으로 정렬
+    // sort(정렬 범위 시작, 끝 , 정렬 기준)
     lst.erase(unique(lst.begin(), lst.end()), lst.end()); // ❸ 중복값 제거
 
     return lst;
