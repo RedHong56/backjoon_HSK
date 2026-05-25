@@ -1,7 +1,9 @@
 #include <string>
 
+// 나랑 다르게 map, set 을 사용 하지 않음 => 정렬 필요 없음 => O(1) 로 문제 해결
 using namespace std;
 
+// 메모리가 고정이기에 훨씬 적게 사용
 bool visited[11][11][4]; // ❶ 특정 좌표에서 특정 방향으로 이동한 적이 있는지 체크하는 배열
 
 // ❷ 상하좌우로 좌표를 이동할 때 필요한 좌표의 오프셋 배열 
@@ -18,6 +20,7 @@ int todir(char dir) {
     return ret;
 }
 
+// 모듈화 직관적임
 // ❹ 특정좌표가 주어진 좌표평면을 벗어나는지 확인
 bool isNotValid(int x, int y)
 {
