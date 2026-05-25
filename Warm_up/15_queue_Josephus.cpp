@@ -1,7 +1,7 @@
 #include <queue>
 
 using namespace std;
-
+// 요세푸스 문제
 int solution(int N, int K) {
     queue<int> q;
 
