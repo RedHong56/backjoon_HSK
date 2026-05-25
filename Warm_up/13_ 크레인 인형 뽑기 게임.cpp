@@ -5,7 +5,16 @@ using namespace std;
 
 int solution(vector<vector<int>> board, vector<int> moves) {
   //❶ 보드판의 열의 크기만큼 스택을 생성 
-  stack<int> lanes[board[0].size()];
+  stack<int> lanes[board[0].size()]; // 열마다 스택 하나씩 만듬 내풀이와 다르게 스택 형식으로 자료를 변환 하면서 전처리 소모가 있지만
+  /* 
+    내 풀이
+    moves 1번 처리 = board 세로 탐색 O(n)
+    moves k번 처리 = O(n) × k
+
+    이 풀이
+    moves 1번 처리 = lanes[m].top() → O(1)
+    moves k번 처리 = O(1) × k
+    */
   //❷ 보드의 가장 밑의 행부터 위로 올라가먼서 순회 
   for(int i = board.size()-1 ; i >= 0; --i) {
     for(int j = 0; j<board[0].size(); ++j) {
