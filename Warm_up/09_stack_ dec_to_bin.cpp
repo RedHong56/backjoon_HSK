@@ -3,7 +3,7 @@
 using namespace std;
 
 string solution(int decimal) {
-   //❶입력 값이  0인 경우 바로 처리
+   //❶입력 값이  0인 경우 바로 처리 (이거 생각 못했음)
     if (decimal == 0) return "0"; 
 
     stack<int> stack;
@@ -15,7 +15,6 @@ string solution(int decimal) {
 
     string binary = "";
     while (!stack.empty()) {
-       //❸ 스택에서 차례대로 top()에 해당되는 값을 binary에 추가
         binary += to_string(stack.top());  
         stack.pop();
     }
