@@ -14,11 +14,11 @@ unordered_map<char, char> bracketPair = {
 //❷현자 인자로 받은 문자열 기준 괄호짝이 맞는지 확인
 bool isValid(string& s, int start) {
     stack<char> stk;
-    unsigned int  sz = s.size();
+    unsigned int  sz = s.size();// unsigned = 사이즈 음수는 없기 때문에
     
 //❸ 문자열을 순회하면서
     for(int i = 0 ; i < sz ; i++) {
-      char ch = s[(start + i) % sz];
+      char ch = s[(start + i) % sz]; // 나랑 다르게 메모리 복사가 없어서 더 효율적임 % 나누기로 전체 순회
       //❹ ch가 닫힌 괄호 인경우
         if(bracketPair.count(ch)) {
            // ❺ 스택이 비었거나 top 원소가 ch와 짝이 맞는 열린괄호가 아닌 경우 false 반환
