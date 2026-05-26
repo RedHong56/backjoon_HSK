@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-#include <sstream>
+#include <sstream> // split 활용
 
 using namespace std;
 
@@ -21,7 +21,7 @@ vector<string> solution(vector<string> record) {
     }
   }
 
-  for (const auto& line : record) {
+  for (const auto& line : record) { // queue를 따로 사용 안함 => 메모리 효율 증가
     stringstream ss(line);
     string cmd, id;
     ss >> cmd >> id;
