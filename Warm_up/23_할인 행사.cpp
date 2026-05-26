@@ -14,7 +14,7 @@ int solution(vector<string> want, vector<int> number, vector<string> discount) {
 
 
   for (int i = 0; i < discount.size() - 9; i++) {
-    // ❷ i일 회원가입 시, 할인받을 수 있는 품목을 키로, 개수를 값으로 해서  discount_10d 선언
+    // ❷ i일 회원가입 시, 할인받을 수 있는 품목을 키로, 개수를 값으로 해서  discount_10d 선언 => 똑같이 슬라이딩 윈드우해서 mapping 해주기
     unordered_map<string, int> discount_10d;
 
     // ❸  각 할인하는 품목을 키로  개수를 저장
@@ -22,7 +22,7 @@ int solution(vector<string> want, vector<int> number, vector<string> discount) {
       discount_10d[discount[j]]++;
 
    // ❹ 할인하는 상품의 품목및 개수가 원하는 상품의 품목 및 개수와 일치하면 카운트 증가
-    if (wantMap == discount_10d) answer++;
+    if (wantMap == discount_10d) answer++; // map을 통째로 비교 하면서  나와 다르게 map 복사비용 줄임
   }
 
   return answer;
