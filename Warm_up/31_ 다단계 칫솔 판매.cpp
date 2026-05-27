@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> solution(vector<string> enroll, vector<string> referral, vector<string> seller, vector<int> amount) {
-  unordered_map<string, string> parent;
+  unordered_map<string, string> parent; // map을 부모만으로 해결
 
   //❶ parent는 판매원 - 판매원을 참여시킨 추천인으로 구성 
   for (size_t i = 0; i < enroll.size(); ++i) {
@@ -31,7 +31,7 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
       //❺ 현재 이름의 추천인이있으면, 현재이름은 추천인으로 변경, 그렇지 않으면 종료 
       if (parent.find(cur_name) != parent.end()) {
         cur_name = parent[cur_name];
-      } else {
+      } else { // 분기문을 이렇게 쓰는게 더 가시성이 좋나?
         break;
       }
       //❻  현재 판매원이 추천인으로 변경되었으므로, 수익금도 이에 맞춰서 업데이트
