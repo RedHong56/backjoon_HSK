@@ -27,7 +27,7 @@ void unionSet(int x, int y) {
   int root2 = find(y);
 
   // 루트 노드가 같을 경우 유니온 연산을 할 필요가 없음
-  if (root1 != root2) {
+  if (root1 != root2) { //다른 경우에
     // 랭크기반 알고리즘으로 유니온 연산 수행  
     if (rankData[root1] < rankData[root2]) {
       parents[root1] = root2;
@@ -53,12 +53,12 @@ vector<bool> solution(int k, vector<vector<char>> operations) {
 
   vector<bool> results;
   for (const auto& op : operations) {
-    if (op[0] == 'u') {
+    if (op[0] == 'u') { //union
       int x = charToInt(op[1]);
       int y = charToInt(op[2]);
       unionSet(x, y);
     } 
-    else if (op[0] == 'f') {
+    else if (op[0] == 'f') { //find
       int x = charToInt(op[1]);
       int y = charToInt(op[2]);
       // 파인드 연산을 통화 x,y의 루트노드가 같은지 확인해서 결과 저장
