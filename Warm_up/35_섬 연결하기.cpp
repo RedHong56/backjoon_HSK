@@ -5,12 +5,12 @@
 using namespace std;
 
 // 상호베타적 집합 정의
-class DisjointSet {
+class DisjointSet { // Class로 풀기
 private:
-  vector<int> parent, rank;
+  vector<int> parent, rank; // 따로 전역으로 하지 않고 private로 선언
 
 public:
-  DisjointSet(int size) : parent(size, -1), rank(size, 0) {}
+  DisjointSet(int size) : parent(size, -1), rank(size, 0) {} // 생성자
 
   int find(int node) {
     if (parent[node] == -1) 
@@ -24,7 +24,7 @@ public:
     int root1 = find(node1);
     int root2 = find(node2);
 
-    if (root1 != root2) {
+    if (root1 != root2) { // rank 기반 인걸 명심할 것
         
       //❷ 랭크 기반으로 합치기
       if (rank[root1] > rank[root2]) {
@@ -33,13 +33,13 @@ public:
         parent[root1] = root2;
       } else {
         parent[root2] = root1;
-        rank[root1]++;
+        rank[root1]++; // 여기서 rank 갱신
       }
     }
   }
 
   //❸ 같은 집합에 있는지 확인  
-  bool isCycle(int node1, int node2) {
+  bool isCycle(int node1, int node2) { // 단순화
     return find(node1) == find(node2); 
   }
 };
