@@ -5,14 +5,14 @@
 using namespace std;
 
 // 현재 좌표와, 해당 좌표까지 이동횟수
-struct Point {
+struct Point { // 튜플 말고 그냥 구조체로
   int y, x, cnt;
 };
 
 // 상하좌우로 이동하기 위한 오프셋
 int dy[4] = {-1, 0, 1, 0};
 int dx[4] = {0, 1, 0, -1};
-int n, m;
+int n, m; // 범위를 전역으로 선언
 
 // 현재 좌표가 유효한 좌표인이 확인
 bool isWithinRange(int y, int x) {
@@ -20,7 +20,7 @@ bool isWithinRange(int y, int x) {
 }
 
 // 시작 좌표를 확인
-Point findStartPoint(char start, vector<string> &maze) {
+Point findStartPoint(char start, vector<string> &maze) { // 따로
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
       if (maze[i][j] == start) {
@@ -34,8 +34,8 @@ Point findStartPoint(char start, vector<string> &maze) {
 int bfs(char start, char end, vector<string>& maze) {
   
   //❶ 방문여부를 체크하는 배열
-  bool visited[101][101] = {false};
-  queue<Point> q;
+  bool visited[101][101] = {false}; // 최대치인 101로 초기화
+  queue<Point> q; // 튜플 아닌 구조체
     
   //❷ 시작노드부터 너비우선 탐색하도록 추가
   q.push(findStartPoint(start, maze));
