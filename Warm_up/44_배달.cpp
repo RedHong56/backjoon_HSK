@@ -5,23 +5,23 @@ using namespace std;
 
 int solution(int N, vector<vector<int>> road, int K) {
   vector<pair<int, int>> graph[N + 1];
-  vector<int> distances(N + 1, numeric_limits<int>::max());
+  vector<int> distances(N + 1, numeric_limits<int>::max()); //
   vector<bool> visited(N + 1, false);
   distances[1] = 0; 
 
   //❶ 방향이 따로 없으므로, 양방향 모두 동일한 가중치 입력
   for (const auto& r : road) {
     int a = r[0], b = r[1], cost = r[2];
-    graph[a].push_back({b, cost});
+    graph[a].push_back({b, cost}); // first = to / second = cost
     graph[b].push_back({a, cost});
   }
 
   //❷ 출발점을 heap에 추가
-  priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;
-  heap.push({0, 1}); 
+  priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap; // 힙 활용
+  heap.push({0, 1});
 
   while (!heap.empty()) {
-    int dist = heap.top().first;
+    int dist = heap.top().first;  //힙이 항상 거리가 가장 작은 노드를 top으로 유지
     int node = heap.top().second;
     heap.pop();
 
