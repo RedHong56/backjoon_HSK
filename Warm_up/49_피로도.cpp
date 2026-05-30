@@ -5,7 +5,7 @@
 using namespace std;
 
 int maxDepth = 0;
-bool visited[8] = {false, };
+bool visited[8] = {false, }; // 나는 vector로 find 했음
 
 //❶ 최대방문 던전수를 갱신하면서 깊이우선탐색으로 던전을 탐험
 void exploreDungeon(int depth, int power, vector<vector<int>>& dungeons) {
@@ -14,12 +14,12 @@ void exploreDungeon(int depth, int power, vector<vector<int>>& dungeons) {
 
   for(int i = 0; i < dungeons.size(); i++) {
     //❷ 이미 방문한 던전이거나,  최소 필요 피로도가 현재 남은 피로도 보다 많은 경우 
-    if(visited[i] || dungeons[i][0] > power)
+    if(visited[i] || dungeons[i][0] > power) // 기저
       continue;
   
     //❸ 방문이 가능한 가능한 모든 경우를 확인
     visited[i] = true;
-    exploreDungeon(depth + 1, power - dungeons[i][1], dungeons);
+    exploreDungeon(depth + 1, power - dungeons[i][1], dungeons); // 인자로만 변화량을 기록해서 단순하게
     visited[i] = false;
   }
 }
