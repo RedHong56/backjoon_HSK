@@ -7,10 +7,10 @@ vector<vector<int>> board; // 전역 변수로 스도쿠 보드 선언
 //❶ 특정 위치에 숫자를 놓을 수 있는지 확인
 bool is_valid(int num, int row, int col) {
   for (int i = 0; i < 9; i++) {
-    if (board[row][i] == num || board[i][col] == num) return false;
+    if (board[row][i] == num || board[i][col] == num) return false; // 행, 렬 확인
   }
   
-  int startRow = row - row % 3, startCol = col - col % 3;
+  int startRow = row - row % 3, startCol = col - col % 3; // 3*3 영역 확인
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
       if (board[i + startRow][j + startCol] == num) return false;
