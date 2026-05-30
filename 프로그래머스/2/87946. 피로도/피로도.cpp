@@ -13,10 +13,10 @@ void backtracking (int hp, int ans, vector<vector<int>>& dungeons) {
 
         // 결과에 있는지 확인, 필요 값이 충분한지 확인
         if (find(clear.begin(), clear.end(), i) == clear.end() && hp - need >= 0){
-            answer = max(answer, ans);
             clear.push_back(i);
             hp -= consume;
             ans ++;
+            answer = max(answer, ans);
             backtracking(hp, ans, dungeons);
             
             // 원복
@@ -28,7 +28,7 @@ void backtracking (int hp, int ans, vector<vector<int>>& dungeons) {
 }
 
 int solution(int k, vector<vector<int>> dungeons) {
-    answer = 1;
+    answer = 0;
     backtracking(k, answer, dungeons);
     
     return  answer;// 던전 갯수
