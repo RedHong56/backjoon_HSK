@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int counts[100001] = {};
+int counts[100001] = {}; // 배열로 더 값 싸게 접근하기 나는 벡터, 페어 까지 사용
 
 void updateCounts(const string& s) {
   string numStr;
@@ -29,7 +29,7 @@ vector<int> solution(string s) {
   //❺ 집합이 담긴 문자열의 각 원소를 계수정렬
   updateCounts(s);
 
-  vector<pair<int, int>> freqPairs;
+  vector<pair<int, int>> freqPairs; // 필요한 만큼만 사용하기 위해 메모리 good
   for (int i = 1; i <= 100000; i++) {
     //❻ 집합에 있는 원소인 경우 (개수, 값) 형식으로 푸시
     if (counts[i] > 0) {
@@ -38,7 +38,7 @@ vector<int> solution(string s) {
   }
 
   //❼ 각 원소의 개수를 기준으로 내림차순 정렬
-  sort(freqPairs.rbegin(), freqPairs.rend());
+  sort(freqPairs.rbegin(), freqPairs.rend()); // pair의 경우 first 값으로 정렬됨 => cmp 만들어 줄 필요 없었다
 
   //➑ 원소의 개수로 내림차순 정렬된 벡터를 순회하며 원소를 푸시
   for (const auto& p : freqPairs) {
