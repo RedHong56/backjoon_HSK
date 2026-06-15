@@ -5,9 +5,7 @@ using namespace std;
 // 1, 2, 3, 5, 8 ...
 int solution(int n) {
     vector<int> arr = {0, 1, 2};
-    if (n == 0) return arr[0];
-    else if (n == 1) return arr[1];
-    else if (n == 2) return arr[2];
+    if (n < 3) return n;
     else {
         for (int i = 3; i <= n; i++) {
             arr.push_back((arr[i - 1] + arr[i - 2]) % 1000000007);
